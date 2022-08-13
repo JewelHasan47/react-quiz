@@ -7,6 +7,8 @@ import Login from './components/pages/Login';
 import Quiz from './components/pages/Quiz';
 import Result from './components/pages/Result';
 import { AuthProvider } from './contexts/AuthContext';
+import PrivateOutlet from './components/PrivateOutlet';
+import PublicOutlet from './components/PublicOutlet';
 
 function App() {
     return (
@@ -14,11 +16,15 @@ function App() {
             <AuthProvider>
                 <Layout>
                     <Routes>
-                        <Route exact={ true } path={ '/' } element={ <Home/> }/>
-                        <Route exact={ true } path={ '/signup' } element={ <Signup/> }/>
-                        <Route exact={ true } path={ '/login' } element={ <Login/> }/>
-                        <Route exact={ true } path={ '/quiz' } element={ <Quiz/> }/>
-                        <Route exact={ true } path={ '/result' } element={ <Result/> }/>
+                        <Route path={ '/' } element={ <Home /> } />
+                        <Route path={ '/*' } element={ <PublicOutlet /> }>
+                            <Route path={ 'signup' } element={ <Signup /> } />
+                            <Route path={ 'login' } element={ <Login /> } />
+                        </Route>
+                        <Route path={ '/*' } element={ <PrivateOutlet /> }>
+                            <Route path={ 'quiz' } element={ <Quiz /> } />
+                            <Route path={ 'result' } element={ <Result /> } />
+                        </Route>
                     </Routes>
                 </Layout>
             </AuthProvider>
