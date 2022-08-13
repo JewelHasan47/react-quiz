@@ -1,38 +1,62 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Material+Icons+Outlined");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+
+:root {
+    --bodyBackground: #f2f4f8;
+    --successGreen: #00ff84;
+    --dangerRed: #ffc0c7;
+    --questionBG: #e4e8ee;
+    --fontPrimary: #002333;
+    --active: #2dbf64;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: var(--fontPrimary);
+    font-family: "Montserrat", sans-serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+    background-color: var(--bodyBackground);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+a {
+    text-decoration: none;
+    color: blue;
 }
 
-.App-link {
-  color: #61dafb;
+h4 {
+    color: #7c83a7;
+    font-weight: 600;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 10px 0;
+    margin-bottom: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.info {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.error {
+    background-color: var(--dangerRed);
+    padding: 0.6rem 1.2rem;
+    margin-top: 10px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.column {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+@media only screen and (max-width: 1023px) {
+    .column {
+        grid-template-columns: 1fr;
+    }
 }
